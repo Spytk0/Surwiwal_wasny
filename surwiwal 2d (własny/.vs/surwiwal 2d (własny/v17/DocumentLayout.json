@@ -1,0 +1,126 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\Repo\\Surwiwal_wasny\\surwiwal 2d (w\u0142asny\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8476E44E-0A1A-DB74-5A45-7DC4BF2B5561}|Assembly-CSharp.csproj|E:\\Repo\\Surwiwal_wasny\\surwiwal 2d (w\u0142asny\\assets\\scripts\\eqscripts\\itemgrid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8476E44E-0A1A-DB74-5A45-7DC4BF2B5561}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\eqscripts\\itemgrid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8476E44E-0A1A-DB74-5A45-7DC4BF2B5561}|Assembly-CSharp.csproj|e:\\repo\\surwiwal_wasny\\surwiwal 2d (w\u0142asny\\assets\\scripts\\eqscripts\\inventoryitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8476E44E-0A1A-DB74-5A45-7DC4BF2B5561}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\eqscripts\\inventoryitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8476E44E-0A1A-DB74-5A45-7DC4BF2B5561}|Assembly-CSharp.csproj|E:\\Repo\\Surwiwal_wasny\\surwiwal 2d (w\u0142asny\\assets\\scripts\\eqscripts\\inventorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8476E44E-0A1A-DB74-5A45-7DC4BF2B5561}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\eqscripts\\inventorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8476E44E-0A1A-DB74-5A45-7DC4BF2B5561}|Assembly-CSharp.csproj|E:\\Repo\\Surwiwal_wasny\\surwiwal 2d (w\u0142asny\\assets\\scripts\\eqscripts\\gridinteract.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8476E44E-0A1A-DB74-5A45-7DC4BF2B5561}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\eqscripts\\gridinteract.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8476E44E-0A1A-DB74-5A45-7DC4BF2B5561}|Assembly-CSharp.csproj|E:\\Repo\\Surwiwal_wasny\\surwiwal 2d (w\u0142asny\\assets\\scripts\\eqscripts\\inventoryhighlight.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8476E44E-0A1A-DB74-5A45-7DC4BF2B5561}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\eqscripts\\inventoryhighlight.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8476E44E-0A1A-DB74-5A45-7DC4BF2B5561}|Assembly-CSharp.csproj|E:\\Repo\\Surwiwal_wasny\\surwiwal 2d (w\u0142asny\\assets\\scripts\\eqscripts\\itemdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8476E44E-0A1A-DB74-5A45-7DC4BF2B5561}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\eqscripts\\itemdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "GridInteract.cs",
+              "DocumentMoniker": "E:\\Repo\\Surwiwal_wasny\\surwiwal 2d (w\u0142asny\\Assets\\scripts\\EQScripts\\GridInteract.cs",
+              "RelativeDocumentMoniker": "Assets\\scripts\\EQScripts\\GridInteract.cs",
+              "ToolTip": "E:\\Repo\\Surwiwal_wasny\\surwiwal 2d (w\u0142asny\\Assets\\scripts\\EQScripts\\GridInteract.cs",
+              "RelativeToolTip": "Assets\\scripts\\EQScripts\\GridInteract.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-02T18:19:55.632Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "InventoryHighlight.cs",
+              "DocumentMoniker": "E:\\Repo\\Surwiwal_wasny\\surwiwal 2d (w\u0142asny\\Assets\\scripts\\EQScripts\\InventoryHighlight.cs",
+              "RelativeDocumentMoniker": "Assets\\scripts\\EQScripts\\InventoryHighlight.cs",
+              "ToolTip": "E:\\Repo\\Surwiwal_wasny\\surwiwal 2d (w\u0142asny\\Assets\\scripts\\EQScripts\\InventoryHighlight.cs",
+              "RelativeToolTip": "Assets\\scripts\\EQScripts\\InventoryHighlight.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAywCsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-02T18:17:24.54Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "InventoryItem.cs",
+              "DocumentMoniker": "E:\\Repo\\Surwiwal_wasny\\surwiwal 2d (w\u0142asny\\Assets\\scripts\\EQScripts\\InventoryItem.cs",
+              "RelativeDocumentMoniker": "Assets\\scripts\\EQScripts\\InventoryItem.cs",
+              "ToolTip": "E:\\Repo\\Surwiwal_wasny\\surwiwal 2d (w\u0142asny\\Assets\\scripts\\EQScripts\\InventoryItem.cs",
+              "RelativeToolTip": "Assets\\scripts\\EQScripts\\InventoryItem.cs",
+              "ViewState": "AgIAADwAAAAAAAAAAAAwwEwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-02T18:17:22.533Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ItemGrid.cs",
+              "DocumentMoniker": "E:\\Repo\\Surwiwal_wasny\\surwiwal 2d (w\u0142asny\\Assets\\scripts\\EQScripts\\ItemGrid.cs",
+              "RelativeDocumentMoniker": "Assets\\scripts\\EQScripts\\ItemGrid.cs",
+              "ToolTip": "E:\\Repo\\Surwiwal_wasny\\surwiwal 2d (w\u0142asny\\Assets\\scripts\\EQScripts\\ItemGrid.cs",
+              "RelativeToolTip": "Assets\\scripts\\EQScripts\\ItemGrid.cs",
+              "ViewState": "AgIAAGsAAAAAAAAAAAAmwHwAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-02T18:17:01.132Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ItemData.cs",
+              "DocumentMoniker": "E:\\Repo\\Surwiwal_wasny\\surwiwal 2d (w\u0142asny\\Assets\\scripts\\EQScripts\\ItemData.cs",
+              "RelativeDocumentMoniker": "Assets\\scripts\\EQScripts\\ItemData.cs",
+              "ToolTip": "E:\\Repo\\Surwiwal_wasny\\surwiwal 2d (w\u0142asny\\Assets\\scripts\\EQScripts\\ItemData.cs",
+              "RelativeToolTip": "Assets\\scripts\\EQScripts\\ItemData.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-31T23:27:55.907Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "InventoryController.cs",
+              "DocumentMoniker": "E:\\Repo\\Surwiwal_wasny\\surwiwal 2d (w\u0142asny\\Assets\\scripts\\EQScripts\\InventoryController.cs",
+              "RelativeDocumentMoniker": "Assets\\scripts\\EQScripts\\InventoryController.cs",
+              "ToolTip": "E:\\Repo\\Surwiwal_wasny\\surwiwal 2d (w\u0142asny\\Assets\\scripts\\EQScripts\\InventoryController.cs",
+              "RelativeToolTip": "Assets\\scripts\\EQScripts\\InventoryController.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAAowDsAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-27T17:49:16.089Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

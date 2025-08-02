@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 763340d2fcc9aaf44a7803c171396d1a, type: 3}
   m_Name: BigBox
   m_EditorClassIdentifier: 
+  itemName: 
   width: 2
   height: 2
   itemIcon: {fileID: 21300000, guid: 244af0c18970c4f4ca254fa8ac02df9e, type: 3}

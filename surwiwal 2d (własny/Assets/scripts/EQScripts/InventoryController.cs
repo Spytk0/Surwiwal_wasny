@@ -33,9 +33,31 @@ public class InventoryController : MonoBehaviour
     Vector2 oldPosition;
 
 
+    public static InventoryController Instance { get; private set; }
+    private bool isCarryingItem;
     private void Awake()
     {
-        inventoryHighlight = GetComponent <InventoryHighlight>();
+        inventoryHighlight = GetComponent<InventoryHighlight>();
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+    }
+    public bool IsCarryingItem => isCarryingItem;
+    public void SelectItem(InventoryItem item)
+    {
+        selectedItem = item;
+        isCarryingItem = true;
+    }
+    public void DeselectItem()
+    {
+        selectedItem = null;
+        isCarryingItem = false;
     }
     private void Update()
     {
@@ -183,69 +205,52 @@ public class InventoryController : MonoBehaviour
 
     private void PlaceItem(Vector2Int tileGridPosition)
     {
-        if (selectedItem == null || selectedItemGrid == null) return;
+        if (selectedItem == null || SelectedItemGrid == null) return;
 
-        // SprawdŸ nak³adanie siê z innymi przedmiotami (IGNORUJ¥C w³asn¹ star¹ pozycjê)
-        List<InventoryItem> overlappingItems = GetTrueOverlaps(tileGridPosition, selectedItem);
-
-        if (overlappingItems == null)
+        // SprawdŸ czy przedmiot mieœci siê w siatce
+        if (!SelectedItemGrid.BoundaryCheck(tileGridPosition.x, tileGridPosition.y,
+                                          selectedItem.WIDTH, selectedItem.HEIGHT))
         {
-            Debug.Log("Próba umieszczenia poza granicami siatki.");
+            Debug.Log("Nie mieœci siê w siatce!");
             return;
         }
 
-        if (overlappingItems.Count == 1)
+        // SprawdŸ kolizje
+        if (!SelectedItemGrid.CheckPlacement(tileGridPosition.x, tileGridPosition.y,
+                                           selectedItem.WIDTH, selectedItem.HEIGHT))
         {
-            Debug.Log($"Próba zamiany: {selectedItem.itemData.itemName} z {overlappingItems[0].itemData.itemName}");
-            if (CheckSwapPossible(tileGridPosition, overlappingItems[0]))
-            {
-                Debug.Log("CheckSwapPossible: TRUE - wykonujê HandleItemSwap");
-                HandleItemSwap(tileGridPosition, overlappingItems[0]);
-            }
-            else
-            {
-                Debug.Log("CheckSwapPossible: FALSE - ale nie powinno siê zdarzyæ!");
-            }
+            Debug.Log("Kolizja z istniej¹cym przedmiotem!");
+            return;
+        }
 
-        }
-        else if (overlappingItems.Count == 0)
-        {
-            // Brak kolizji - normalne umieszczenie
-            PlaceSingleItem(tileGridPosition);
-        }
-        else
-        {
-            Debug.Log("Zbyt wiele kolizji");
-        }
+        // Umieœæ przedmiot
+        InventoryItem itemToPlace = selectedItem;
+        selectedItem = null;
+        SelectedItemGrid.PlaceItem(itemToPlace, tileGridPosition.x, tileGridPosition.y, ref overlapItem);
     }
 
-    private List<InventoryItem> GetTrueOverlaps(Vector2Int position, InventoryItem item)
+    private List<InventoryItem> GetStrictOverlaps(Vector2Int position)
     {
         List<InventoryItem> overlaps = new List<InventoryItem>();
-        Vector2Int oldPos = new Vector2Int(item.onGridPositionX, item.onGridPositionY);
 
-        for (int x = 0; x < item.WIDTH; x++)
+        for (int x = 0; x < selectedItem.WIDTH; x++)
         {
-            for (int y = 0; y < item.HEIGHT; y++)
+            for (int y = 0; y < selectedItem.HEIGHT; y++)
             {
                 int checkX = position.x + x;
                 int checkY = position.y + y;
 
-                if (!selectedItemGrid.PositionCheck(checkX, checkY)) return null;
-
-                // Ignoruj komórki zajmowane przez przenoszony przedmiot
-                if (checkX >= oldPos.x && checkX < oldPos.x + item.WIDTH &&
-                    checkY >= oldPos.y && checkY < oldPos.y + item.HEIGHT) continue;
-
-                InventoryItem cellItem = selectedItemGrid.GetItem(checkX, checkY);
-                if (cellItem != null && cellItem != item && !overlaps.Contains(cellItem))
+                InventoryItem item = selectedItemGrid.GetItem(checkX, checkY);
+                if (item != null && item != selectedItem)
                 {
-                    overlaps.Add(cellItem);
+                    overlaps.Add(item);
                 }
             }
         }
         return overlaps;
     }
+
+
 
 
     private bool CheckSwapPossible(Vector2Int newPos, InventoryItem itemToSwap)
@@ -310,6 +315,27 @@ public class InventoryController : MonoBehaviour
             rectTransform.position = Input.mousePosition;
         }
     }
+    public bool TryForcePlacement(Vector2Int position)
+    {
+        if (selectedItem == null) return false;
+
+        // Próbuj przesun¹æ przedmiot w 4 kierunkach
+        Vector2Int[] directions = { Vector2Int.up, Vector2Int.right,
+                              Vector2Int.down, Vector2Int.left };
+
+        foreach (var dir in directions)
+        {
+            Vector2Int newPos = position + dir;
+            if (selectedItemGrid.CheckPlacement(newPos.x, newPos.y,
+                                              selectedItem.WIDTH, selectedItem.HEIGHT))
+            {
+                PlaceSingleItem(newPos);
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
 
 

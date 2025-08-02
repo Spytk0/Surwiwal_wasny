@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 763340d2fcc9aaf44a7803c171396d1a, type: 3}
   m_Name: Box
   m_EditorClassIdentifier: 
+  itemName: 
   width: 1
   height: 1
   itemIcon: {fileID: 21300000, guid: a1e79660f49e3df44acec3313c87ed1f, type: 3}

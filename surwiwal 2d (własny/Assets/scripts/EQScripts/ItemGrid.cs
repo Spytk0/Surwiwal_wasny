@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class ItemGrid : MonoBehaviour
 {
@@ -97,34 +98,58 @@ public class ItemGrid : MonoBehaviour
         return overlappedItems;
     }
 
-    public bool PlaceItem(InventoryItem item, int posX, int posY, ref InventoryItem overlapItem)
+    public bool PlaceItem(InventoryItem itemToPlace, int posX, int posY, ref InventoryItem overlapItem)
     {
-        overlapItem = null;
-
-        // SprawdŸ czy mo¿na umieœciæ przedmiot
-        List<InventoryItem> overlaps = CheckOverlaps(posX, posY, item.WIDTH, item.HEIGHT);
-
-        if (overlaps == null) return false; // Poza granicami
-        if (overlaps.Count > 1) return false; // Zbyt wiele kolizji
-
-        if (overlaps.Count == 1)
+        // Usuñ stary wpis z siatki jeœli istnieje
+        if (itemToPlace.onGridPositionX != -1 && itemToPlace.onGridPositionY != -1)
         {
-            // Jeœli jest kolizja z jednym przedmiotem (do zamiany)
-            overlapItem = overlaps[0];
-            CleanGridReference(overlapItem);
+            CleanGridReference(itemToPlace);
         }
 
-        // Umieœæ przedmiot
-        Place(item, posX, posY);
-        return true;
+        // SprawdŸ, czy mo¿na umieœciæ przedmiot
+        if (!CheckPlacement(posX, posY, itemToPlace.WIDTH, itemToPlace.HEIGHT))
+        {
+            return false; // Nie mo¿na umieœciæ
+        }
+
+        // Umieœæ nowy wpis
+        for (int x = 0; x < itemToPlace.WIDTH; x++)
+        {
+            for (int y = 0; y < itemToPlace.HEIGHT; y++)
+            {
+                inventoryItemSlot[posX + x, posY + y] = itemToPlace;
+            }
+        }
+
+        itemToPlace.onGridPositionX = posX;
+        itemToPlace.onGridPositionY = posY;
+
+        // Ustaw pozycjê i renderowanie
+        RectTransform rectTransform = itemToPlace.GetComponent<RectTransform>();
+        rectTransform.SetParent(this.rectTransform);
+        rectTransform.SetAsLastSibling();
+        rectTransform.localPosition = CalculatePositionOnGrid(itemToPlace, posX, posY);
+
+        // Przywróæ interaktywnoœæ
+        itemToPlace.GetComponent<CanvasGroup>().blocksRaycasts = true;
+
+        return true; // Uda³o siê umieœciæ
     }
+
+
 
 
 
     public void Place(InventoryItem inventoryItem, int posX, int posY)
     {
+        // BLOKADA renderowania:
+        inventoryItem.transform.SetAsLastSibling(); // Zawsze na wierzchu
+
+        // BLOKADA kolizji:
+        inventoryItem.GetComponent<CanvasGroup>().blocksRaycasts = true;
         RectTransform itemRect = inventoryItem.GetComponent<RectTransform>();
         itemRect.SetParent(rectTransform);
+        itemRect.SetAsLastSibling(); // Ustaw jako ostatni w kolejnoœci renderowania
 
         for (int x = 0; x < inventoryItem.WIDTH; x++)
         {
@@ -140,6 +165,7 @@ public class ItemGrid : MonoBehaviour
         Vector2 position = CalculatePositionOnGrid(inventoryItem, posX, posY);
         itemRect.localPosition = position;
     }
+
 
     private void CleanGridReference(InventoryItem item)
     {
@@ -280,6 +306,28 @@ public class ItemGrid : MonoBehaviour
             for (int y = posY; y < posY + height; y++)
             {
                 if (!PositionCheck(x, y) || grid[x, y])
+                {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+    public bool BoundaryCheck(int posX, int posY, int width, int height)
+    {
+        return posX >= 0 &&
+               posY >= 0 &&
+               posX + width <= gridSizeWidth &&
+               posY + height <= gridSizeHeight;
+    }
+
+    public bool CheckPlacement(int posX, int posY, int width, int height)
+    {
+        for (int x = posX; x < posX + width; x++)
+        {
+            for (int y = posY; y < posY + height; y++)
+            {
+                if (!PositionCheck(x, y) || GetItem(x, y) != null)
                 {
                     return false;
                 }

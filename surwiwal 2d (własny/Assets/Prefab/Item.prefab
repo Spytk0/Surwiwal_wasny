@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2164922038547362340}
   - component: {fileID: 5101592872333932935}
   - component: {fileID: -6757254935030014367}
+  - component: {fileID: 3744025196715364352}
   m_Layer: 5
   m_Name: Item
   m_TagString: Untagged
@@ -89,5 +90,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75a50cf72e524174aa3b63aef8936ac2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sizeWidth: 1
-  sizeHeight: 1
+  onGridPositionX: -1
+  onGridPositionY: -1
+  itemData: {fileID: 0}
+  rotated: 0
+--- !u!225 &3744025196715364352
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1921162689304072733}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0

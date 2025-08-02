@@ -2,10 +2,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class InventoryItem : MonoBehaviour
+public class InventoryItem : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
+    // Dodaj te pola jeœli ich nie ma
+    public int onGridPositionX = -1;
+    public int onGridPositionY = -1;
+
     public ItemData itemData;
 
     public int HEIGHT
@@ -29,10 +34,6 @@ public class InventoryItem : MonoBehaviour
             return itemData.height;
         }
     }
-
-    public int onGridPositionX;
-    public int onGridPositionY;
-
     public bool rotated = false;
 
     internal void Set(ItemData itemData)
@@ -52,4 +53,25 @@ public class InventoryItem : MonoBehaviour
         RectTransform rectTransform = GetComponent<RectTransform>();
         rectTransform.rotation = Quaternion.Euler(0, 0, rotated == true ? 90f : 0);
     }
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        if (InventoryController.Instance.IsCarryingItem) return;
+        InventoryController.Instance.SelectItem(this);
+        GetComponent<CanvasGroup>().blocksRaycasts = false;
+    }
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        // Logika rozpoczêcia przeci¹gania
+    }
+    public void OnDrag(PointerEventData eventData)
+    {
+        // Logika przeci¹gania
+    }
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        // Logika zakoñczenia przeci¹gania
+        InventoryController.Instance.DeselectItem();
+        GetComponent<CanvasGroup>().blocksRaycasts = true;
+    }
 }
+
